@@ -6,7 +6,6 @@ using System.Collections;
 
 namespace Exercise2
 {
-    
     class Solution
     {
         public int solution(int [] arr)
