@@ -19,6 +19,7 @@ namespace Exercise6
               SqlConnection conn = new SqlConnection(Myconnectstring);
               SqlCommand cmd = new SqlCommand("sp_Myproc", conn);
             */
+
             using (conn)
             conn.Open();
             cmd.ExecuteNonQuery();
