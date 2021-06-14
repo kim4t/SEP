@@ -37,6 +37,5 @@ namespace Exercise2
             house.ShowData();
             house.Door.ShowData();
         }
-
     }
 }
