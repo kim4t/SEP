@@ -96,6 +96,28 @@
 		where dt.NumOfCustomers > 1
 		
 --6.	List all Customer Cities that have ordered at least two different kinds of products.
+		with CTE
+		as
+		(
+			select c.ContactName, count(p.ProductID) as "Total"
+			from Orders o inner join Customers c
+			on o.CustomerID = c.CustomerID
+			inner join [Order Details] od
+			on o.OrderID = od.OrderID
+			inner join Products p
+			on p.ProductID = od.ProductID
+			group by c.ContactName
+			having count(p.ProductID) > 1
+		), CTE2
+		as
+		(
+			select distinct c.City
+			from CTE cte inner join Customers c
+			on cte.ContactName = c.ContactName
+		)
+		select * from CTE2
+		order by CTE2.City
+		
 		
 --7.	List all Customers who have ordered products, but have the ¡®ship city¡¯ on the order different from their own customer cities.
 		select s.ContactName, s.City as "ShipCity", dt.City as "CustomerCity"
