@@ -109,3 +109,19 @@ c.	A new employee ¡°Aragorn King¡± whos territory is ¡°Gondor¡±.
 10.	 Create a stored procedure ¡°sp_birthday_employees_[you_last_name]¡± that creates a new table ¡°birthday_employees_your_last_name¡± and fill it with all employees that have a birthday on Feb. (Make a screen shot) drop the table. Employee table should not be affected.
 11.	Create a stored procedure named ¡°sp_your_last_name_1¡± that returns all cites that have at least 2 customers who have bought no or only one kind of product. Create a stored procedure named ¡°sp_your_last_name_2¡± that returns the same but using a different approach. (sub-query and no-sub-query).
 12.	How do you make sure two tables have the same data?
+	if after union two table, the number of row is still same,
+	amd if after union all two table, the number of row become twice,
+	then they have same data.
+
+	-- suppose table is t1
+14. create table t2(varchar(20))
+	insert t2 values('FullName')
+	insert t2 values(select (t.FirstName+' 't.LastName) as FullName from t1 t)
+
+15. select top 1 t.Student
+	from t1 t
+	where t. Sex = 'F'
+	order by t.Marks
+
+16. output will be 'Li' the way to output is same as Q15
+
