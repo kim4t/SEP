@@ -1,31 +1,32 @@
 Answer following questions
 1.	What is an object in SQL?
-	did not covered yet.
+	views, tables, functions, stored procedures, etc are object in SQL
 
 2.	What is Index? What are the advantages and disadvantages of using Indexes?
-	did not covered yet.
+	index in sql are used to speed up the performance of select statement	but it will decrease the performance of Insert, update and delete statement
 
 3.	What are the types of Indexes?
-	did not covered yet.
+	clustered index and nonclustered index
 
 4.	Does SQL Server automatically create indexes when a table is created? If yes, under which constraints?
-	did not covered yet.
+	clustered, unique index is created under primary key column,
+	nonclustered, unique index is created under unique constraint
 
 5.	Can a table have multiple clustered index? Why?
-	did not covered yet.
+	No, because clustered index sort table ascending order 
 
 6.	Can an index be created on multiple columns? Is yes, is the order of columns matter?
-	did not covered yet.
+	Yes, the order will be first column > second column > third comlumn and so on
 
 7.	Can indexes be created on views?
-	did not covered yet.
+	Yes
 
 8.	What is normalization? What are the steps (normal forms) to achieve normalization?
 	Normalization is a process of organizing data to minimize redundancy.
 	There are first, second and thrid form of normalization.
 
 9.	What is denormalization and under which scenarios can it be preferable?
-	did not covered yet.
+	Denormalization is a strategy used on a previously-normalized database to increase performance
 
 10.	How do you achieve Data Integrity in SQL Server?
 	By using constraint
@@ -48,7 +49,7 @@ Answer following questions
 	but foreign key column can be NULL. in this case, it references no row in the parent table.
 	
 16.	Can we create indexes on Table Variables or Temporary Tables?
-	did not covered yet.
+	No
 
 17.	What is Transaction? What types of transaction levels are there in SQL Server?
 	Transaction is single recoverable unit of work that executes either working completely, or not at all.
@@ -103,7 +104,7 @@ Write queries for following scenarios
 	end
 	
 4.  List all events that can cause a trigger to be executed.
-	did not covered yet.
+	insert, update and delete 
 
 5. Generate a destination schema in 3rd Normal Form.  
    Include all necessary fact, join, and dictionary tables, 

@@ -25,7 +25,7 @@
 
 8.	What is Trigger? What types of Triggers are there?
 		special type of stored procedure that automatically runs when an event occurs in the database server
-		There are 3 types of Triggers: DDL, DMLand Logan Triggers
+		sql server has after trigger and insead of trigger
 
 9.	What are the scenarios to use Triggers?
 	when you want to assure that a certain control shall 
@@ -166,8 +166,28 @@ end
 	END
 	END
 	
-8.	Create a trigger that when there are more than 100 employees in territory ¡°Stevens Point¡±, move them back to Troy. (After test your code,) remove the trigger. Move those employees back to ¡°Troy¡±, if any. Unlock the tables.
-	Did not cover yet
+8.	Create a trigger that when there are more than 100 employees in territory ¡°Stevens Point¡±, 
+	move them back to Troy. (After test your code,) remove the trigger. 
+	Move those employees back to ¡°Troy¡±, if any. Unlock the tables.
+	
+	create trigger trMoveEmp
+	on employeeterritories
+	after insert
+	declare @empCount int
+	as
+	begin
+		select @empCount = count(*) from employeeterritories 
+		where territoryid = (select territoryid from territories where territoriesDescription = 'Stevens Point') 
+		group by employeeid
+		if @empCount > 100
+		begin
+			update employeeterritories
+			set territoryid from territories where territoriesDescription = 'Troy'
+			where employeeid in (select emplyoeeid from territories where territoryid = (select territoryid from territories where territoriesDescription = 'Stevens Point' and Region = 3))
+		end
+	end
+
+	drop trigger trMoveEmp
 
 9.	Create 2 new tables ¡°people_your_last_name¡± ¡°city_your_last_name¡±. 
 	City table has two records: {Id:1, City: Seattle}, {Id:2, City: Green Bay}. 
