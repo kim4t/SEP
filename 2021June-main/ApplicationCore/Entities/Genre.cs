@@ -13,6 +13,8 @@ namespace ApplicationCore.Entities
 
         [MaxLength(24)]
         public String Name { get; set; }
+
+        public ICollection<Movie> Movies { get; set; }
     }
 
     //To change entity/table

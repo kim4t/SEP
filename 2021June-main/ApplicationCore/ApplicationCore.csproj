@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\MovieGenre.cs" />
+    <Compile Remove="Entities\UserRole.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Models\" />
     <None Remove="Entities\" />
     <None Remove="RepositoryInterfaces\" />
@@ -12,10 +17,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="RepositoryInterfaces\" />
     <Folder Include="ServiceInterfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
   </ItemGroup>
 </Project>
